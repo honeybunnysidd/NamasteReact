@@ -1,0 +1,29 @@
+{
+  "name": "namastereact",
+  "version": "1.0.0",
+  "description": "This is Namaste React by me",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/honeybunnysidd/NamasteReact.git"
+  },
+  "keywords": [],
+  "author": "Siddhartha Raghuvanshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/honeybunnysidd/NamasteReact/issues"
+  },
+  "homepage": "https://github.com/honeybunnysidd/NamasteReact#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "browsersList": [
+    "last 10 versions"
+  ]
+}
