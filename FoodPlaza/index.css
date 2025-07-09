@@ -58,8 +58,14 @@
   padding: 20px;
 }
 
-.search {
+.filter {
   margin: 0 100px;
+}
+.filter-btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
 }
 
 .restaurant-container {
