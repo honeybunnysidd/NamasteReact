@@ -1,8 +1,11 @@
 // import logo from "../../assets/Food-Plaza.png";
+import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constant";
 
 // Header
 export const Header = () => {
+  const [userAuth, setUserAuth] = useState("Login");
+
   return (
     <div className="header">
       {/* //logo */}
@@ -28,7 +31,16 @@ export const Header = () => {
             <a href="">Cart</a>
           </li>
           <li>
-            <a href="">Login</a>
+            <a
+              href="#"
+              onClick={() => {
+                userAuth === "Login"
+                  ? setUserAuth("Logout")
+                  : setUserAuth("Login");
+              }}
+            >
+              {userAuth}
+            </a>
           </li>
         </ul>
       </div>

@@ -4,10 +4,6 @@
   box-sizing: border-box;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-body {
-  background-color: black;
-  color: white;
-}
 
 /*---------------------- Header container-------------------- */
 .header {
@@ -55,7 +51,6 @@ body {
 /*---------------------- Body container-------------------- */
 
 .bodyContainer {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -64,6 +59,9 @@ body {
 
 .filter {
   margin: 0 100px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 15px;
 }
 .filter-btn {
   padding: 6px 10px;
@@ -96,4 +94,70 @@ body {
   width: 100%;
   height: 180px;
   border-radius: 15px;
+}
+
+/* -----------------Shimmer UI(Skelten of Body--------------) */
+/* Container for cards */
+.restaurant-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px;
+}
+
+/* Shimmer card box */
+.shimmer-card {
+  width: 250px;
+  height: 300px;
+  border-radius: 10px;
+  background-color: #f6f6f6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Image placeholder */
+.shimmer-img {
+  width: 100%;
+  height: 160px;
+  background-color: #e2e2e2;
+  border-radius: 8px;
+}
+
+/* Text lines placeholder */
+.shimmer-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.shimmer-line {
+  height: 12px;
+  background-color: #e2e2e2;
+  border-radius: 6px;
+}
+
+.shimmer-line.short {
+  width: 60%;
+}
+
+.shimmer-line:not(.short) {
+  width: 100%;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    background-color: #eeeeee;
+  }
+  50% {
+    background-color: #dddddd;
+  }
+  100% {
+    background-color: #eeeeee;
+  }
 }
