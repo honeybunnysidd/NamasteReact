@@ -82,4 +82,9 @@ import {Component} from "path";
 (Normal JS utility functions)
 
 - useState() - Superpowerful State Variables in react
-- useEffect()
+- useEffect() - Do work after render the component
+
+# 2 Types of Routing in web Pages
+
+1. Client Side Routing
+2. Server Side Routing
