@@ -1,14 +1,21 @@
 import UserCard from "./UserCard";
 import UserClass from "./UserClass";
+import React from "react";
 
-const About = () => {
-  return (
-    <div className="about-container">
-      <h2>I am About</h2>
-      <UserCard name={"Siddhartha"} location={"Meerut"} />
-      <UserClass name={"Siddhartha"} location={"Meerut"} />
-    </div>
-  );
-};
+class About extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    console.log("Parent Render");
+    return (
+      <div className="about-container">
+        <h2>I am About</h2>
+        <UserClass name={"Siddhartha"} location={"Meerut"} />
+      </div>
+    );
+  }
+}
 
 export default About;
