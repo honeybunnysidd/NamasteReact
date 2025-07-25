@@ -1,26 +1,13 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constant";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
+  // const [resInfo, setResInfo] = useState(null);
 
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  let fetchData = async () => {
-    let data = await fetch(MENU_API + resId);
-    //   `https://cors-handlers.vercel.app/api/?url=https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Fmenu%2Fpl%3Fpage-type%3DREGULAR_MENU%26complete-menu%3Dtrue%26lat%3D12.9351929%26lng%3D77.62448069999999%26restaurantId%3D" +
-    //     ${resId} +
-    //     "%26submitAction%3DENTER`
-    const response = await data.json();
-    setResInfo(response);
-  };
+  const resInfo = useRestaurantMenu(resId);
 
   if (resInfo === null) {
     return <Shimmer />;
