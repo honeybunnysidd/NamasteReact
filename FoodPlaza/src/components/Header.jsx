@@ -2,10 +2,11 @@
 import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 // Header
 export const Header = () => {
-  const [userAuth, setUserAuth] = useState("Login");
+  const [userAuth, setUserAuth] = useState("🟢Login");
 
   //If no dependecny array => useEffect is called on every render
   useEffect(() => {
@@ -21,6 +22,8 @@ export const Header = () => {
   useEffect(() => {
     console.log("I'm useEffect() with dependecny");
   }, [userAuth]);
+
+  const onlineStatus = useOnlineStatus();
 
   return (
     <div className="header">
@@ -50,9 +53,9 @@ export const Header = () => {
             <a
               href="#"
               onClick={() => {
-                userAuth === "Login"
-                  ? setUserAuth("Logout")
-                  : setUserAuth("Login");
+                userAuth === "🟢Login"
+                  ? setUserAuth("🔴Logout")
+                  : setUserAuth("🟢Login");
               }}
             >
               {userAuth}
