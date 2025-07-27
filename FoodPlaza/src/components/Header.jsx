@@ -26,43 +26,48 @@ export const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="header">
+    <div className="flex justify-between px-5 py-2 bg-red-200 shadow-xl sticky top-0 w-full z-100">
       {/* //logo */}
-      <div className="logo-container">
-        <Link to={"/"}>
-          <img className="logo" src={LOGO_URL} alt="logo" />
-        </Link>
-      </div>
+      <Link to={"/"}>
+        <img className="w-24" src={LOGO_URL} alt="logo" />
+      </Link>
 
       {/* Nav Items */}
-      <div className="navItems">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/cart">Cart</Link>
-          </li>
-          <li>
-            <a
-              href="#"
-              onClick={() => {
-                userAuth === "🟢Login"
-                  ? setUserAuth("🔴Logout")
-                  : setUserAuth("🟢Login");
-              }}
-            >
-              {userAuth}
-            </a>
-          </li>
-        </ul>
-      </div>
+      <ul className="flex items-center gap-6 mx-5 opacity-80">
+        <li>
+          <Link to="/" className="hover:opacity-100">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/about" className="hover:opacity-100">
+            About
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact" className="hover:opacity-100">
+            Contact
+          </Link>
+        </li>
+        <li>
+          <Link to="/cart" className="hover:opacity-100">
+            Cart
+          </Link>
+        </li>
+        <li>
+          <a
+            href="#"
+            className="hover:opacity-100"
+            onClick={() => {
+              userAuth === "🟢Login"
+                ? setUserAuth("🔴Logout")
+                : setUserAuth("🟢Login");
+            }}
+          >
+            {userAuth}
+          </a>
+        </li>
+      </ul>
     </div>
   );
 };
