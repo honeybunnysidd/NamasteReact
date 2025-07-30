@@ -46,13 +46,19 @@ const Footer = () => {
           </h3>
           <ul className="space-y-1">
             <li>
-              <a href="#" className="hover:text-white">
-                Instagram
+              <a
+                href="https://www.linkedin.com/in/siddhartha-raghuvanshi/"
+                className="hover:text-white"
+              >
+                Linkedin
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-white">
-                Twitter
+              <a
+                href="https://www.instagram.com/honeybunnysidd/"
+                className="hover:text-white"
+              >
+                Instagram
               </a>
             </li>
             <li>
@@ -65,7 +71,7 @@ const Footer = () => {
                 href="mailto:support@foodplaza.com"
                 className="hover:text-white"
               >
-                support@foodplaza.com
+                siddhartharaghuvanshi01@gmail.com
               </a>
             </li>
           </ul>
