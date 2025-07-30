@@ -7,13 +7,14 @@ const RestaurantCard = ({ resData }) => {
     cuisines,
     name,
     avgRating,
-    deliveryTime,
+    sla: { slaString },
     costForTwo,
     cloudinaryImageId,
   } = resData?.info;
+  console.log(resData.info.sla.slaString);
 
   return (
-    <div className="bg-gray-100 rounded-2xl p-4 shadow hover:shadow-md transition h-full flex flex-col justify-between">
+    <div className="bg-gray-100 rounded-2xl p-4 shadow hover:shadow-lg transition h-full flex flex-col justify-between transform hover:scale-92">
       <div>
         <img
           src={CDN_URL + cloudinaryImageId}
@@ -22,7 +23,7 @@ const RestaurantCard = ({ resData }) => {
         />
         <h3 className="font-semibold text-lg">{name}</h3>
         <p className="text-sm text-gray-700">{cuisines?.join(", ")}</p>
-        <p className="ms-2">{deliveryTime} mins</p>
+        <p className="text-sm text-gray-600">{slaString}</p>
         <p className="text-sm mt-1">
           ⭐ {avgRating} | {costForTwo}
         </p>

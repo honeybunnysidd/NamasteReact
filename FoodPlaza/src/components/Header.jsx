@@ -1,74 +1,87 @@
 import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constant";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 export const Header = () => {
   const [userAuth, setUserAuth] = useState("🟢Login");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const onlineStatus = useOnlineStatus();
+  const location = useLocation();
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+    { name: "Cart", path: "/cart" },
+  ];
 
   return (
-    <header className="bg-red-200 shadow-xl sticky top-0 w-full z-50">
-      <div className="flex items-center justify-between px-4 py-3 md:px-8">
+    <header className="bg-white shadow-md sticky top-0 w-full z-50">
+      <div className="flex items-center justify-between px-5 py-3 md:px-10">
         {/* Logo */}
-        <Link to={"/"}>
-          <img className="w-20 sm:w-24" src={LOGO_URL} alt="logo" />
+        <Link to="/">
+          <img
+            className="w-24 hover:scale-105 transition-transform"
+            src={LOGO_URL}
+            alt="logo"
+          />
         </Link>
 
-        {/* Hamburger - visible only on small screens */}
+        {/* Hamburger (mobile only) */}
         <button
-          className="md:hidden text-2xl"
+          className="md:hidden text-2xl focus:outline-none transition-transform hover:scale-110"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           ☰
         </button>
 
-        {/* Navigation (desktop only) */}
-        <nav className="hidden md:flex gap-6 text-sm sm:text-base items-center opacity-80">
-          <Link to="/" className="hover:opacity-100">
-            Home
-          </Link>
-          <Link to="/about" className="hover:opacity-100">
-            About
-          </Link>
-          <Link to="/contact" className="hover:opacity-100">
-            Contact
-          </Link>
-          <Link to="/cart" className="hover:opacity-100">
-            Cart
-          </Link>
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+          {navLinks.map(({ name, path }) => (
+            <Link
+              key={name}
+              to={path}
+              className={`hover:text-red-600 transition ${
+                location.pathname === path
+                  ? "text-red-500 font-semibold"
+                  : "text-gray-700"
+              }`}
+            >
+              {name}
+            </Link>
+          ))}
+
           <button
-            className="hover:opacity-100"
             onClick={() =>
               setUserAuth(userAuth === "🟢Login" ? "🔴Logout" : "🟢Login")
             }
+            className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-xl text-xs shadow cursor-pointer"
           >
             {userAuth}
           </button>
         </nav>
       </div>
 
+      {/* Mobile Nav */}
       {isMobileMenuOpen && (
-        <nav className="md:hidden flex flex-col px-4 pb-4 gap-3 text-sm opacity-90 bg-red-100">
-          <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
-            Home
-          </Link>
-          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>
-            About
-          </Link>
-          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-            Contact
-          </Link>
-          <Link to="/cart" onClick={() => setIsMobileMenuOpen(false)}>
-            Cart
-          </Link>
+        <nav className="md:hidden flex flex-col px-5 pb-4 gap-3 text-base bg-red-100 text-gray-800 font-medium rounded-b-md shadow-inner">
+          {navLinks.map(({ name, path }) => (
+            <Link
+              key={name}
+              to={path}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:text-red-600"
+            >
+              {name}
+            </Link>
+          ))}
           <button
             onClick={() => {
               setUserAuth(userAuth === "🟢Login" ? "🔴Logout" : "🟢Login");
               setIsMobileMenuOpen(false);
             }}
+            className="bg-red-400 hover:bg-red-500 text-white px-3 py-1 rounded-xl text-sm shadow-md w-fit"
           >
             {userAuth}
           </button>

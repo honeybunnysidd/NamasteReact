@@ -9,6 +9,7 @@ import Error from "./components/Error.jsx";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import PageNotFound from "./components/PageNotFound.jsx";
 import RestaurantMenu from "./components/RestaurantMenu.jsx";
+import Footer from "./components/Footer.jsx";
 
 //Whole app layout
 const AppLayout = () => {
@@ -16,6 +17,7 @@ const AppLayout = () => {
     <div className="app">
       <Header />
       <Outlet />
+      <Footer />
     </div>
   );
 };

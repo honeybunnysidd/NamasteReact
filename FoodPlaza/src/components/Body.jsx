@@ -51,7 +51,7 @@ const Body = () => {
           onChange={(e) => setSearchText(e.target.value)}
         />
         <button
-          className="bg-red-400 hover:bg-red-500 text-white rounded-xl px-5 py-2 text-sm shadow-md"
+          className="bg-red-500 hover:bg-red-600 text-white rounded-xl px-5 py-2 text-sm shadow-md cursor-pointer"
           onClick={() => {
             const filtered = listOfRestaurants.filter((res) =>
               res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -63,7 +63,7 @@ const Body = () => {
           Search
         </button>
         <button
-          className="bg-green-400 hover:bg-green-500 text-white rounded-xl px-5 py-2 text-sm shadow-md"
+          className="bg-green-400 hover:bg-green-500 text-white rounded-xl px-5 py-2 text-sm shadow-md cursor-pointer"
           onClick={() => {
             const topList = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4
