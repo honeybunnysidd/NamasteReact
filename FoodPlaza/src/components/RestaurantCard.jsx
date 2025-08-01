@@ -11,7 +11,6 @@ const RestaurantCard = ({ resData }) => {
     costForTwo,
     cloudinaryImageId,
   } = resData?.info;
-  console.log(resData.info.sla.slaString);
 
   return (
     <div className="bg-gray-100 rounded-2xl p-4 shadow hover:shadow-lg transition h-full flex flex-col justify-between transform hover:scale-92">
