@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link, useLocation } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 
 export const Header = () => {
   const [userAuth, setUserAuth] = useState("🟢Login");
@@ -15,6 +16,9 @@ export const Header = () => {
     { name: "Contact", path: "/contact" },
     { name: "Cart", path: "/cart" },
   ];
+
+  //Selector (Subscribing to the store using selector)
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <header className="bg-white shadow-md sticky top-0 w-full z-50">
@@ -51,6 +55,11 @@ export const Header = () => {
               {name}
             </Link>
           ))}
+
+          {/* temporary cart */}
+          <Link className="font-bold text-xl" to={"/cart"}>
+            Cart {cartItems.length}
+          </Link>
 
           <button
             onClick={() =>

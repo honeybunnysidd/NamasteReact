@@ -10,15 +10,20 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import PageNotFound from "./components/PageNotFound.jsx";
 import RestaurantMenu from "./components/RestaurantMenu.jsx";
 import Footer from "./components/Footer.jsx";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore.js";
+import Cart from "./components/Cart.jsx";
 
 //Whole app layout
 const AppLayout = () => {
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <Provider store={appStore}>
+      <div className="app">
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    </Provider>
   );
 };
 //Optimisation of code => Chunking
@@ -47,6 +52,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/restaurants/:resId",
