@@ -14,7 +14,6 @@ export const Header = () => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
-    { name: "Cart", path: "/cart" },
   ];
 
   //Selector (Subscribing to the store using selector)

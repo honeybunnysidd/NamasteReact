@@ -4,12 +4,12 @@ import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
   const dispatch = useDispatch();
-  console.log(dispatch);
 
   const handleAddItem = (item) => {
     //Dispatch an Action
     dispatch(addItem(item));
   };
+
   return (
     <div className="py-6 px-4">
       {items.map((item) => (
